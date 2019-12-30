@@ -9,9 +9,6 @@ class BoxCollection extends Component{
     cards: PropTypes.arrayOf(PropTypes.object).isRequired,
     statusShow: PropTypes.func.isRequired,
   }
-  static defaultProps = {
-    statusShow(){},
-  }
   render(){
     const {statusShow} = this.props;
     const boxes = this.props.cards.map(card=> <Box key={card.id} {...card} statusShow={statusShow} />);

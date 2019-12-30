@@ -5,7 +5,7 @@ import "./App.css";
 
 
 const CardStatus = {
-  HIDDDEN : 0,
+  HIDDEN : 0,
   SHOWING: 1,
   MATCHING: 2
 }
@@ -30,15 +30,15 @@ class App extends Component{
     return arr;
   }
   newGame = () =>{
-    const {HIDDDEN} = CardStatus;
+    const {HIDDEN} = CardStatus;
     const cards = this.knuthShuffle(this.props.cards);
-    const newCards = cards.map(card=> card.status!==HIDDDEN ? {...card, status: HIDDDEN} : card);
+    const newCards = cards.map(card=> card.status!==HIDDEN ? {...card, status: HIDDEN} : card);
     this.setState({cards: newCards, prevCard: {backgroundColor: "prev"}, lastCard: {backgroundColor: "last"}});
   }
   statusShow = (id) =>{
-    const {HIDDDEN, SHOWING, MATCHING} = CardStatus;
-    const cards = this.state.cards.map(card=> (card.id===id&&card.status===HIDDDEN) ? {...card, status: SHOWING} : card); 
-    let lastCard = this.state.cards.filter(card=> (card.id===id&&card.status===HIDDDEN))[0];
+    const {HIDDEN, SHOWING, MATCHING} = CardStatus;
+    const cards = this.state.cards.map(card=> (card.id===id&&card.status===HIDDEN) ? {...card, status: SHOWING} : card); 
+    let lastCard = this.state.cards.filter(card=> (card.id===id&&card.status===HIDDEN))[0];
     lastCard ? lastCard.status=SHOWING : lastCard = this.state.lastCard;
     this.setState((prevState)=> ({cards, prevCard: prevState.lastCard, lastCard}), ()=>{
       this.setState({cards, prevCard: this.state.prevCard, lastCard: this.state.lastCard});
@@ -54,9 +54,9 @@ class App extends Component{
       if((prevCard.status===SHOWING&&lastCard.status===SHOWING) && (prevCard.backgroundColor!==lastCard.backgroundColor)){
         setTimeout(()=>{
           const {cards} = this.state;
-          let newCards = cards.map(card=> (card.id===keys[0] || card.id===keys[1]) ? {...card, status: HIDDDEN} : card);
-          prevCard.status = HIDDDEN;
-          lastCard.status = HIDDDEN;
+          let newCards = cards.map(card=> (card.id===keys[0] || card.id===keys[1]) ? {...card, status: HIDDEN} : card);
+          prevCard.status = HIDDEN;
+          lastCard.status = HIDDEN;
           this.setState({cards: newCards, prevCard: {backgroundColor: "prev"}, lastCard: {backgroundColor: "last"}});
         }, 500); 
       }
@@ -76,22 +76,22 @@ class App extends Component{
 
 App.defaultProps = {
   cards:[
-    {id: 0, status: CardStatus.HIDDDEN, backgroundColor: "crimson"},
-    {id: 1, status: CardStatus.HIDDDEN, backgroundColor: "crimson"},
-    {id: 2, status: CardStatus.HIDDDEN, backgroundColor: "burlywood"},
-    {id: 3, status: CardStatus.HIDDDEN, backgroundColor: "burlywood"},
-    {id: 4, status: CardStatus.HIDDDEN, backgroundColor: "pink"},
-    {id: 5, status: CardStatus.HIDDDEN, backgroundColor: "pink"},
-    {id: 6, status: CardStatus.HIDDDEN, backgroundColor: "aquamarine"},
-    {id: 7, status: CardStatus.HIDDDEN, backgroundColor: "aquamarine"},
-    {id: 8, status: CardStatus.HIDDDEN, backgroundColor: "darkorange"},
-    {id: 9, status: CardStatus.HIDDDEN, backgroundColor: "darkorange"},
-    {id: 10, status: CardStatus.HIDDDEN, backgroundColor: "dodgerblue"},
-    {id: 11, status: CardStatus.HIDDDEN, backgroundColor: "dodgerblue"},
-    {id: 12, status: CardStatus.HIDDDEN, backgroundColor: "goldenrod"},
-    {id: 13, status: CardStatus.HIDDDEN, backgroundColor: "goldenrod"},
-    {id: 14, status: CardStatus.HIDDDEN, backgroundColor: "indigo"},
-    {id: 15, status: CardStatus.HIDDDEN, backgroundColor: "indigo"}
+    {id: 0, status: CardStatus.HIDDEN, backgroundColor: "crimson"},
+    {id: 1, status: CardStatus.HIDDEN, backgroundColor: "crimson"},
+    {id: 2, status: CardStatus.HIDDEN, backgroundColor: "burlywood"},
+    {id: 3, status: CardStatus.HIDDEN, backgroundColor: "burlywood"},
+    {id: 4, status: CardStatus.HIDDEN, backgroundColor: "pink"},
+    {id: 5, status: CardStatus.HIDDEN, backgroundColor: "pink"},
+    {id: 6, status: CardStatus.HIDDEN, backgroundColor: "aquamarine"},
+    {id: 7, status: CardStatus.HIDDEN, backgroundColor: "aquamarine"},
+    {id: 8, status: CardStatus.HIDDEN, backgroundColor: "darkorange"},
+    {id: 9, status: CardStatus.HIDDEN, backgroundColor: "darkorange"},
+    {id: 10, status: CardStatus.HIDDEN, backgroundColor: "dodgerblue"},
+    {id: 11, status: CardStatus.HIDDEN, backgroundColor: "dodgerblue"},
+    {id: 12, status: CardStatus.HIDDEN, backgroundColor: "goldenrod"},
+    {id: 13, status: CardStatus.HIDDEN, backgroundColor: "goldenrod"},
+    {id: 14, status: CardStatus.HIDDEN, backgroundColor: "indigo"},
+    {id: 15, status: CardStatus.HIDDEN, backgroundColor: "indigo"}
   ]
 }
 
