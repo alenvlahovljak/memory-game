@@ -1,0 +1,6 @@
+main{
+  width: calc(32rem + 24px);
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+}
