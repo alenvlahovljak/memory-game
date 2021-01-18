@@ -37,7 +37,7 @@ class App extends Component{
   }
   statusShow = (id) =>{
     const {HIDDEN, SHOWING, MATCHING} = CardStatus;
-    const cards = this.state.cards.map(card=> (card.id===id&&card.status===HIDDEN) ? {...card, status: SHOWING} : card); 
+    const cards = this.state.cards.map(card=> (card.id===id&&card.status===HIDDEN) ? {...card, status: SHOWING} : card);
     let lastCard = this.state.cards.filter(card=> (card.id===id&&card.status===HIDDEN))[0];
     lastCard ? lastCard.status=SHOWING : lastCard = this.state.lastCard;
     this.setState((prevState)=> ({cards, prevCard: prevState.lastCard, lastCard}), ()=>{
@@ -50,7 +50,7 @@ class App extends Component{
         prevCard.status = MATCHING;
         lastCard.status = MATCHING;
         this.setState({cards: newCards, prevCard, lastCard});
-      } 
+      }
       if((prevCard.status===SHOWING&&lastCard.status===SHOWING) && (prevCard.backgroundColor!==lastCard.backgroundColor)){
         setTimeout(()=>{
           const {cards} = this.state;
@@ -58,7 +58,7 @@ class App extends Component{
           prevCard.status = HIDDEN;
           lastCard.status = HIDDEN;
           this.setState({cards: newCards, prevCard: {backgroundColor: "prev"}, lastCard: {backgroundColor: "last"}});
-        }, 500); 
+        }, 300);
       }
     });
   }
@@ -67,10 +67,10 @@ class App extends Component{
     return(
         <div className="App">
           <Navbar newGame={this.newGame} />
-          <BoxCollection cards={cards} statusShow={this.statusShow} /> 
+          <BoxCollection cards={cards} statusShow={this.statusShow} />
         </div>
     );
-  } 
+  }
 }
 
 
