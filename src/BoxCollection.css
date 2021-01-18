@@ -1,6 +1,61 @@
 main{
-  width: calc(32rem + 24px);
+  width: calc(14rem + 24px);
   margin: 3rem auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+@media screen and (min-width: 280px) {
+  main{
+    width: calc(16rem + 24px);
+  }
+}
+
+@media screen and (min-width: 320px) {
+  main{
+    width: calc(17rem + 24px);
+  }
+}
+
+@media screen and (min-width: 360px) {
+  main{
+    width: calc(18rem + 24px);
+  }
+}
+
+@media screen and (min-width: 480px) {
+  main{
+    width: calc(20rem + 24px);
+  }
+}
+
+@media screen and (min-width: 520px) {
+  main{
+    width: calc(25rem + 24px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  main{
+    width: calc(27rem + 24px);
+  }
+}
+
+@media screen and (min-width: 720px) {
+  main{
+    width: calc(29rem + 24px);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  main{
+    width: calc(32rem + 24px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main{
+    width: calc(34rem + 24px);
+  }
 }

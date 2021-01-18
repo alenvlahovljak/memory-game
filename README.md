@@ -3,7 +3,7 @@
 ## Local
 
 ### Start
-1. `yarn ` ( install dependencies )
+1. `yarn ` ( install dependenciesy )
 1. `yarn start` ( hosts app at 3000 )
 
 ### Build
